@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Mutasi - Minimarket Bangunan Pilar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>Laporan Mutasi Barang</h1>
+            <p class="subtitle">Minimarket Bangunan Pilar</p>
+        </header>
+
+        <form id="mutationForm">
+            
+            <div class="section-title"><i class="fas fa-calendar-alt"></i> Data Laporan</div>
+            <div class="input-grid">
+                <div class="form-group">
+                    <label>Tanggal</label>
+                    <input type="date" id="dateInput" required>
+                </div>
+                <div class="form-group">
+                    <label>Petugas (Pelaksana)</label>
+                    <input type="text" id="officerInput" placeholder="Nama Petugas..." required>
+                </div>
+                <div class="form-group">
+                    <label>Verifikator (Checker)</label>
+                    <input type="text" id="verifierInput" placeholder="Nama Verifikator..." required>
+                </div>
+                <div class="form-group">
+                    <label>Jenis Mutasi</label>
+                    <select id="mutationType">
+                        <option value="Mutasi Internal">Mutasi Internal</option>
+                        <option value="Mutasi Eksternal">Mutasi Eksternal</option>
+                        <option value="Retur">Retur</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title"><i class="fas fa-box"></i> Data Barang</div>
+            <div class="input-grid">
+                <div class="form-group full-width">
+                    <label>Nama Barang</label>
+                    <input type="text" id="itemName" placeholder="Contoh: Semen Gresik 40kg" required>
+                </div>
+                <div class="form-group">
+                    <label>Satuan</label>
+                    <input type="text" id="unit" placeholder="Zak/Pcs/Box" required>
+                </div>
+                <div class="form-group">
+                    <label>Qty Mutasi</label>
+                    <input type="number" id="qtyMutation" placeholder="0" required>
+                </div>
+            </div>
+
+            <div class="grid-split">
+                <div class="location-box">
+                    <div class="sub-header">DATA RAK / LANTAI ASAL</div>
+                    <div class="form-group">
+                        <label>Lokasi Asal</label>
+                        <input type="text" id="locOrigin" placeholder="Rak A1 / Lantai 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Stok Sebelum</label>
+                        <input type="number" id="stockOriginBefore" placeholder="0">
+                    </div>
+                    </div>
+
+                <div class="location-box">
+                    <div class="sub-header">DATA RAK / LANTAI TUJUAN</div>
+                    <div class="form-group">
+                        <label>Lokasi Tujuan</label>
+                        <input type="text" id="locDest" placeholder="Rak B2 / Lantai 2" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Stok Sebelum</label>
+                        <input type="number" id="stockDestBefore" placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group full-width" style="margin-top: 20px;">
+                <label>Keterangan Tambahan</label>
+                <textarea id="notes" rows="2" placeholder="Tulis keterangan jika ada..."></textarea>
+            </div>
+
+            <button type="button" class="btn-generate" onclick="generateReports()">
+                <i class="fas fa-magic"></i> Buat Laporan
+            </button>
+        </form>
+
+        <div id="outputSection" class="output-container">
+            
+            <div class="output-card">
+                <div class="output-header">
+                    <i class="fab fa-whatsapp"></i> Laporan WhatsApp
+                    <button class="btn-copy" onclick="copyToClipboard('waOutput')">Salin</button>
+                </div>
+                <textarea id="waOutput" readonly></textarea>
+            </div>
+
+            <div class="output-card">
+                <div class="output-header">
+                    <i class="fas fa-server"></i> Laporan Sistem
+                    <button class="btn-copy" onclick="copyToClipboard('sysOutput')">Salin</button>
+                </div>
+                <textarea id="sysOutput" readonly></textarea>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Created By. MW Prabowo (Aquarius.id)
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
