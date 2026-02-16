@@ -20,6 +20,9 @@ Aplikasi web sederhana untuk menstandarisasi format laporan mutasi barang (Whats
 Format yang dihasilkan mengikuti pola:
 `(MUTASI)(TGL) (PETUGAS) (VERIFIKATOR) (BARANG) DARI (ASAL) KE (TUJUAN) (QTY)`
 
+## Link
+https://testeraiofficial-crypto.github.io/pilar-bangunan-stock-mutation/
+
 ## Credits
 **Created By:** MW Prabowo (Aquarius.id)  
 **Client:** Minimarket Bangunan Pilar
